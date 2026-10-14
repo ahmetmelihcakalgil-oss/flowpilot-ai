@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FlowPilot helps small teams turn repetitive customer questions into fast, thoughtful support with AI.">
+<title>FlowPilot — Give your team room to grow</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f7f2;
+  --surface: #ffffff;
+  --ink: #18211d;
+  --muted: #65716a;
+  --line: #dfe5dd;
+  --green: #b9f36a;
+  --deep: #173d2c;
+  --soft: #edf4e7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111713;
+    --surface: #19221c;
+    --ink: #edf5ed;
+    --muted: #a7b4a8;
+    --line: #303c32;
+    --green: #b9f36a;
+    --deep: #d8f5c5;
+    --soft: #243326;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+.root { min-height: 100vh; background-color: var(--bg); }
+nav { max-width: 1180px; margin: auto; padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.04em; }
+.logo { width: 32px; height: 32px; border-radius: 11px; background: var(--green); color: #173d2c; display: grid; place-items: center; font-weight: 900; }
+.navlinks { display: flex; gap: 28px; color: var(--muted); font-size: .92rem; }
+.navlinks a:hover { color: var(--ink); }
+.nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); border-radius: 999px; padding: 12px 18px; font-weight: 700; cursor: pointer; transition: transform .18s ease, opacity .18s ease; }
+.nav-cta:hover, .button:hover { transform: translateY(-2px); }
+.hero { max-width: 1180px; margin: auto; padding: 82px 28px 86px; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 58px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .82rem; font-weight: 650; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #72bd45; box-shadow: 0 0 0 4px #72bd4522; }
+h1 { font-size: clamp(3rem, 6.4vw, 5.7rem); line-height: .98; letter-spacing: -.075em; margin: 24px 0; max-width: 680px; }
+h1 span { color: #679a3e; }
+.lead { color: var(--muted); font-size: 1.12rem; line-height: 1.75; max-width: 540px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.button.primary { background: var(--green); border-color: var(--green); color: #173d2c; }
+.button.secondary { background: transparent; border-color: var(--line); color: var(--ink); }
+.micro { margin-top: 16px; color: var(--muted); font-size: .82rem; }
+.visual { background: var(--soft); border: 1px solid var(--line); border-radius: 28px; padding: 18px; position: relative; overflow: hidden; }
+.visual:before { content: ""; position: absolute; width: 250px; height: 250px; background: var(--green); opacity: .2; border-radius: 50%; right: -95px; top: -100px; filter: blur(2px); }
+.panel { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: 0 18px 60px #0000000a; }
+.panel-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+.panel-title { font-weight: 800; letter-spacing: -.03em; }
+.status { color: #43872b; background: #e4f7d9; padding: 6px 9px; border-radius: 999px; font-size: .72rem; font-weight: 800; }
+.metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.metric { background: var(--bg); border: 1px solid var(--line); padding: 15px; border-radius: 13px; }
+.metric small { display: block; color: var(--muted); font-size: .76rem; }
+.metric strong { display: block; font-size: 1.65rem; margin: 7px 0 3px; letter-spacing: -.05em; }
+.up { color: #5a9d36; font-size: .75rem; font-weight: 750; }
+.ticket { display: flex; gap: 12px; align-items: flex-start; padding: 13px 0; border-top: 1px solid var(--line); }
+.avatar { flex: 0 0 34px; height: 34px; border-radius: 12px; background: var(--soft); display: grid; place-items: center; font-weight: 800; }
+.ticket strong { font-size: .87rem; display: block; margin-bottom: 4px; }
+.ticket p { color: var(--muted); font-size: .78rem; line-height: 1.5; margin: 0; }
+.tag { margin-left: auto; color: var(--muted); font-size: .7rem; white-space: nowrap; }
+.section { padding: 84px 28px; }
+.section-inner { max-width: 1180px; margin: auto; }
+.center { text-align: center; }
+.kicker { text-transform: uppercase; letter-spacing: .16em; font-size: .74rem; font-weight: 800; color: #679a3e; }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.065em; line-height: 1.05; margin: 14px auto; }
+.section-copy { color: var(--muted); line-height: 1.7; max-width: 620px; margin: 14px auto 0; }
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 42px; }
+.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 25px; }
+.feature-icon { width: 42px; height: 42px; display: grid; place-items: center; background: var(--soft); border-radius: 13px; font-size: 1.2rem; }
+.feature h3 { letter-spacing: -.035em; margin: 22px 0 9px; }
+.feature p { color: var(--muted); line-height: 1.7; font-size: .93rem; margin-bottom: 0; }
+.workflow { display: grid; grid-template-columns: .85fr 1.15fr; gap: 48px; align-items: center; }
+.steps { display: grid; gap: 13px; margin-top: 26px; }
+.step { display: flex; gap: 14px; padding: 15px; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); }
+.step-num { flex: 0 0 32px; height: 32px; display: grid; place-items: center; border-radius: 10px; background: var(--green); color: #173d2c; font-weight: 900; }
+.step strong { display: block; margin-bottom: 5px; }
+.step p { color: var(--muted); margin: 0; font-size: .88rem; line-height: 1.55; }
+.quote { background: var(--deep); color: var(--bg); border-radius: 24px; padding: 34px; }
+.quote .big { font-size: 1.65rem; line-height: 1.35; letter-spacing: -.04em; }
+.quote .small { color: var(--muted); line-height: 1.65; }
+.cta { background: var(--green); color: #173d2c; border-radius: 26px; padding: 54px 30px; text-align: center; }
+.cta h2 { max-width: 720px; }
+.cta p { max-width: 580px; margin: 16px auto 24px; line-height: 1.65; }
+.cta .button { background: #173d2c; border-color: #173d2c; color: white; }
+footer { max-width: 1180px; margin: auto; padding: 28px; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: .83rem; border-top: 1px solid var(--line); }
+footer a { color: var(--ink); }
+dialog { width: min(440px, calc(100% - 32px)); border: 1px solid var(--line); border-radius: 20px; padding: 26px; background: var(--surface); color: var(--ink); box-shadow: 0 24px 90px #0005; }
+dialog::backdrop { background: #10171099; backdrop-filter: blur(4px); }
+dialog h3 { margin-top: 0; font-size: 1.5rem; letter-spacing: -.04em; }
+dialog p { color: var(--muted); line-height: 1.6; }
+dialog input { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); margin: 8px 0 14px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 10px; }
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; padding-top: 54px; gap: 36px; }
+  .features { grid-template-columns: 1fr; }
+  .workflow { grid-template-columns: 1fr; }
+  .navlinks { display: none; }
+}
+@media (max-width: 480px) {
+  nav { padding: 18px; }
+  .nav-cta { padding: 10px 12px; font-size: .82rem; }
+  .hero, .section { padding-left: 18px; padding-right: 18px; }
+  .hero { padding-top: 44px; }
+  .visual { padding: 10px; }
+  .panel { padding: 14px; }
+  .metric strong { font-size: 1.35rem; }
+  footer { flex-direction: column; padding: 24px 18px; }
+}
+</style>
+</head>
+<body>
+<div class="root">
+  <nav>
+    <a class="brand" href="#top" aria-label="FlowPilot home"><span class="logo">F</span> flowpilot</a>
+    <div class="navlinks"><a href="#product">Product</a><a href="#how-it-works">How it works</a><a href="#about">About</a></div>
+    <button class="nav-cta" data-open>Request early access <span aria-hidden="true">↗</span></button>
+  </nav>
+  <main id="top">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> AI support, with a human touch</div>
+        <h1>Give your team room to <span>grow.</span></h1>
+        <p class="lead">FlowPilot helps small teams handle repetitive customer questions, find answers faster, and spend more time on the work that matters.</p>
+        <div class="actions"><button class="button primary" data-open>Get early access <span aria-hidden="true">→</span></button><a class="button secondary" href="#product">Explore the product ↓</a></div>
+        <p class="micro">Built for lean teams who care about every customer.</p>
+      </div>
+      <div class="visual" aria-label="Illustrative FlowPilot analytics dashboard">
+        <div class="panel">
+          <div class="panel-head"><div><div class="panel-title">Support overview</div><small style="color:var(--muted)">Your team at a glance</small></div><span class="status">● All systems go</span></div>
+          <div class="metric-grid">
+            <div class="metric"><small>Questions resolved</small><strong>1,284</strong><span class="up">↑ 18% this month</span></div>
+            <div class="metric"><small>Time saved</small><strong>42 hrs</strong><span class="up">↑ 12% this month</span></div>
+          </div>
+          <div class="ticket"><div class="avatar">M</div><div><strong>Where can I track my order?</strong><p>Suggested answer found in Shipping & Returns.</p></div><span class="tag">Resolved</span></div>
+          <div class="ticket"><div class="avatar">A</div><div><strong>Can I change my plan?</strong><p>Draft prepared — a teammate can review before sending.</p></div><span class="tag">Review</span></div>
+          <div class="ticket"><div class="avatar">J</div><div><strong>Do you support international teams?</strong><p>Relevant help article and policy located.</p></div><span class="tag">Ready</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="product">
+      <div class="section-inner center">
+        <div class="kicker">Less busywork. Better service.</div>
+        <h2>Small team. Big capacity.</h2>
+        <p class="section-copy">A practical AI copilot that helps your team respond consistently without losing the personal touch that makes customers stay.</p>
+        <div class="features">
+          <article class="feature"><div class="feature-icon">✦</div><h3>Answers in seconds</h3><p>Find relevant information across your approved knowledge base and turn it into a useful first draft.</p></article>
+          <article class="feature"><div class="feature-icon">◎</div><h3>Your team stays in control</h3><p>Review, edit, and approve responses. Keep people in the loop for the questions that need judgment.</p></article>
+          <article class="feature"><div class="feature-icon">↗</div><h3>Learn from every question</h3><p>Spot recurring requests and missing documentation so your support process gets better over time.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="how-it-works">
+      <div class="section-inner workflow">
+        <div>
+          <div class="kicker">A calmer workflow</div>
+          <h2>From question to confident answer.</h2>
+          <p class="section-copy" style="margin-left:0">FlowPilot is designed to fit around the tools and judgment your team already relies on.</p>
+          <div class="steps">
+            <div class="step"><span class="step-num">1</span><div><strong>Connect your knowledge</strong><p>Bring together the FAQs, policies, and docs your team trusts.</p></div></div>
+            <div class="step"><span class="step-num">2</span><div><strong>Get a helpful draft</strong><p>AI suggests a response grounded in your team's own information.</p></div></div>
+            <div class="step"><span class="step-num">3</span><div><strong>Review and improve</strong><p>Your team decides what to send and flags gaps for next time.</p></div></div>
+          </div>
+        </div>
+        <aside class="quote" id="about">
+          <div class="kicker" style="color:var(--green)">Our principle</div>
+          <p class="big">“AI should give people more time to be thoughtful — not give them more noise to manage.”</p>
+          <p class="small">FlowPilot is an early-stage product concept exploring a more human way for small teams to use AI in customer support.</p>
+          <div style="height:1px;background:#ffffff2a;margin:26px 0"></div>
+          <strong>Built for thoughtful growth.</strong>
+          <p class="small">Designed around useful answers, transparent workflows, and human oversight.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-inner cta">
+        <div class="kicker" style="color:#315d20">Join the first wave</div>
+        <h2>Make space for the work only your team can do.</h2>
+        <p>We’re shaping FlowPilot around the real needs of small teams. Share your email to register interest in early access.</p>
+        <button class="button" data-open>Request early access <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#top"><span class="logo">F</span> flowpilot</a><span>© <span id="year"></span> FlowPilot. An early-stage product concept.</span><a href="mailto:hello@example.com">Contact</a></footer>
+</div>
+<dialog id="signup">
+  <form method="dialog" id="signup-form">
+    <h3>Get on the early-access list</h3>
+    <p>This demo form shows the intended interaction. Connect it to your backend or form provider before collecting real sign-ups.</p>
+    <label for="email">Work email</label>
+    <input id="email" type="email" placeholder="you@company.com" required>
+    <div class="dialog-actions"><button class="button secondary" value="cancel">Not now</button><button class="button primary" id="submit-signup" value="default">Register interest</button></div>
+    <p id="form-message" role="status" aria-live="polite" style="margin-bottom:0"></p>
+  </form>
+</dialog>
+<script>
+const dialog = document.getElementById('signup');
+document.querySelectorAll('[data-open]').forEach(button => button.addEventListener('click', () => dialog.showModal()));
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('signup-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  if (!email) return;
+  document.getElementById('form-message').textContent = 'Thanks! This demo does not store submissions yet — connect a form backend to enable sign-ups.';
+  document.getElementById('submit-signup').textContent = 'Demo complete';
+});
+</script>
+</body>
+</html>
